@@ -139,6 +139,12 @@ input[type="date"] {
     transition: background-color 0.3s ease;
 }
 
+.btn-delete {
+    display: flex;
+    justify-self: end;
+    padding: .3rem;
+}
+
 .content-btn:hover {
     background-color: #b98357;
 }
@@ -153,6 +159,7 @@ input[type="date"] {
 
 
 /* Responsive Design */
+
 @media (max-width: 768px) {
     .container {
         padding: 15px 20px;
