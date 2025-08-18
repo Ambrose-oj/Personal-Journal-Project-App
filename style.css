@@ -1,11 +1,23 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Playfair Display', serif;
     background-color: #f4f4f9;
     color: #333;
     line-height: 1.6;
     margin: 0;
     padding: 20px;
+    background-image: url(image.png);
+    background-size: contain; 
 }
+
+body::after {
+    content: '';
+    position: fixed;
+    z-index: -1;
+    inset: 0;
+    background: #0c0c0c;
+    opacity: .6;
+}
+
 
 .container {
     max-width: 800px;
@@ -61,6 +73,7 @@ h2 {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box; 
     transition: border-color 0.3s;
+    letter-spacing: .7px;
 }
 
 .form-group input[type="text"]:focus,
@@ -75,6 +88,31 @@ input[type="date"] {
     border: #db7f34;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.date-img {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+
+input[type="file"] {
+    background-color: #e89856;
+    padding: .5rem;
+    border: #db7f34;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 12px;
+    width: 70%;
+}
+
+.content-image {
+    display: flex;
+    justify-self: center;
+    width: 60%;
+    height: auto;
+    margin-top: 1.5rem;
 }
 
 .btn {
@@ -153,23 +191,161 @@ input[type="date"] {
     display: none;
 }
 
+
+/* .content-text {
+    font-size: .7rem;
+    letter-spacing: .5px;
+    
+} */
+
+
 /* .content-text {
     display: none;
 } */
 
 
+
+
+
 /* Responsive Design */
 
 @media (max-width: 768px) {
-    .container {
-        padding: 15px 20px;
-    }
 
     body {
-        padding: 10px;
+        padding: 55px 75px;
+        background-size: cover; 
+    }
+
+    .content-image {
+       width: 75%;
+    }
+}
+
+
+
+
+@media (max-width: 475px) { 
+    
+    body {
+        padding: 25px 50px;
+    }
+
+    .container {
+       padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+        justify-self: center;
+        margin-top: 2rem;
     }
 
     .page-header h1 {
         font-size: 1.8em;
     }
+
+    .form-group {
+        margin-bottom: 0rem;
+    }
+
+    .form-group input[type="text"],
+    .form-group textarea {
+        padding: 8px;
+        font-size: .8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    input[type="date"] {
+        padding: .4rem;
+        font-size: .7rem;
+        background-color: #dad7d7;
+        margin-bottom: 1.5rem;
+    }    
+
+    .date-img {
+        display: flex;
+        flex-direction: column;
+        gap: 0rem;
+        margin-bottom: 1.5rem;
+    }
+
+    input[type="file"] {
+        width: 70%;
+    }
+
+    .btn {
+        padding: 7px 14px;
+        letter-spacing: .5px;
+        font-size: 12px;
+        margin-bottom: 1.5rem;
+    }
+
+    .content-btn {
+        padding: 7px 14px;
+        font-size: 11px;  
+        letter-spacing: .9px;     
+    }
+
+    .btn-delete {
+        padding: 3px 8px;
+        letter-spacing: .5px;
+        font-size: 12px;
+        margin-top: 2rem;
+    }
+    
+
+    .content-text {
+        font-size: .8rem;
+        letter-spacing: .5px;
+    }
+}
+
+
+/*       breaking point on both my mobiles for testing  ( max-width: 415 )  */
+@media (max-width: 415px) { 
+    .journal-entry h3 {
+        font-size: 1rem;     
+    }
+ 
+}
+
+
+
+
+
+@media (max-width: 376px) { 
+    body {
+        padding: 20px 40px;
+    }
+
+    .page-header h1 {
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 6px 12px;
+        letter-spacing: .5px;
+        font-size: 12px;
+    }
+
+    .content-btn {
+        padding: 6px 12px;
+        font-size: 11px;     
+    }
+
+   
+}
+
+
+
+
+@media (max-width: 321px) { 
+    body {
+        padding: 15px 30px;
+    }  
+   
 }

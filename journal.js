@@ -98,10 +98,20 @@ journalForm.addEventListener('submit', function (event) {
 const titleInput = document.getElementById('entry-title');    
 const dateInput = document.getElementById('entry-date');
 const contentInput = document.getElementById('entry-content');
+const imageInput = document.getElementById('image-upload');
+
+let uploadImage = document.querySelector('.content-image');
+// let inputFile = document.getElementById('image-upload');
+imageInput.onchange = function(){
+    uploadImage.src = URL.createObjectURL(imageInput.files[0]);
+}
   
     const title = titleInput.value;
     const dateValue = dateInput.value;
     const content = contentInput.value;
+    // const image = imageInput;
+    
+    // const image = imageInput.value;
 
     if (title === '' || dateValue === '' || content === '') {
             alert('Please fill out all fields to add an entry.');
@@ -117,8 +127,18 @@ const contentInput = document.getElementById('entry-content');
             <p class="entry-date">${dateValue}</p>
             <button class="content-btn">View Content</button>
             <button class="btn-delete">Delete Entry</button>
+            ${imageInput.value}
             <p class="content-text hide">${content}</p>
         `;
+
+    //     if (image) {
+    //     const reader = new FileReader();
+    //     reader.onload = function(e) {
+    //       entryImage += `<img src="${e.target.result}" class="content-image" >`;
+    //       newEntry.innerHTML = entryImage;
+    //     };
+    //     reader.readAsDataURL(image);
+    // } 
 
         journalList.prepend(newEntry);
                
@@ -148,13 +168,28 @@ journalList.addEventListener('click', function(e) {
     if (e.target.classList.contains('content-btn')) {
 
         // Find the parent list item (the <li>) for the view-content button that was clicked
-        const currentEntry = e.target.closest('.journal-entry');
+        const targetText = e.target.closest('.journal-entry');
 
         // From within that specific entry, find its content paragraph
-        const content = currentEntry.querySelector('.content-text'); 
+        const contentText = targetText.querySelector('.content-text');
+        
+        if (contentText) {
+            contentText.classList.toggle('hide');
+        }
+    }
+});
 
-        if (content) {
-            content.classList.toggle('hide');
+// FOR MY JOURNAL IMAGES
+journalList.addEventListener('click', function(e) {
+    
+    if (e.target.classList.contains('content-btn')) {
+
+        const targetImage = e.target.closest('.journal-entry');
+
+        const contentImage = targetImage.querySelector('.content-image');
+        
+        if (contentImage) {
+            contentImage.classList.toggle('hide');
         }
     }
 });
@@ -171,8 +206,8 @@ document.querySelector('.journal-list').addEventListener('click', function(e) {
 
         // Find the closest li element and remove it
         const listItem = e.target.closest('li');
-        // listItem.remove();
-        if (listItem) { 
+        
+                if (listItem) { 
             if (confirm('Are you sure you want to delete this entry?')) {
                 listItem.remove();
             }
