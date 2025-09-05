@@ -17,7 +17,10 @@
   <body>
     <div class="container">
       <header class="page-header">
-        <h1>My Journal</h1>
+        <div class="note-header">
+          <img class="notebook" src="notebook.png" />
+          <h1>My Journal</h1>
+        </div>
       </header>
 
       <main>
@@ -25,7 +28,7 @@
           <h2>Add New Entry</h2>
           <form>
             <div class="form-group">
-              <label for="entry-title">Title</label>
+              <label for="entry-title">Title *</label>
               <input
                 type="text"
                 id="entry-title"
@@ -34,19 +37,11 @@
               />
             </div>
 
-            <!-- <div class="form-group">
-              <label for="entry-date">Date</label>
-              <input
-                type="date"
-                id="entry-date"
-                name="entry-date"
-                placeholder="dd/mm/yyyy"
-              />
-            </div> -->
-
             <div class="date-img">
               <div class="form-group">
-                <label for="entry-date">Date</label>
+                <label for="entry-date">
+                  <img class="btn-cal" src="calendar.png" /> Date *</label
+                >
                 <input
                   type="date"
                   id="entry-date"
@@ -57,7 +52,9 @@
 
               <div class="form-group">
                 <label for="image-upload">
-                  <i class="fa fa-cloud-upload"></i> Upload Image
+                  <i class="fa fa-cloud-upload"></i
+                  ><img class="btn-cam" src="camera.png" /> Upload Image
+                  (Optional)
                 </label>
                 <input
                   type="file"
@@ -70,7 +67,7 @@
             </div>
 
             <div class="form-group">
-              <label for="entry-content">My thoughts</label>
+              <label for="entry-content">My thoughts *</label>
               <textarea
                 id="entry-content"
                 name="entry-content"
@@ -83,10 +80,22 @@
           </form>
         </section>
 
+        <section class="journal-search">
+          <h2 class="">Search Entries</h2>
+          <div class="form-group">
+            <input
+              type="text"
+              id="search-input"
+              class=""
+              placeholder="Search by title or content..."
+            />
+          </div>
+        </section>
+
         <section class="journal-list-section">
           <h2>My Journal Entries</h2>
           <ul class="journal-list">
-            <li class="journal-entry">
+            <!-- <li class="journal-entry">
               <h3>Exploring Restuarants</h3>
               <p class="entry-date">July 28, 2025</p>
               <button class="content-btn">View Content</button>
@@ -96,8 +105,10 @@
                 Ewa-goyin I've had in ages. I think I've found my new favorite
                 spot.
               </p>
-              <button class="btn-delete">Delete Entry</button>
+              
+              <img class="btn-delete" src="trash-can.png" />
             </li>
+
             <li class="journal-entry">
               <h3>A Day of Small Wins</h3>
               <p class="entry-date">July 27, 2025</p>
@@ -110,25 +121,119 @@
                 portfolio website. It's the small victories that often feel the
                 most satisfying.
               </p>
-              <button class="btn-delete">Delete Entry</button>
-            </li>
-
-            <!-- <li class="journal-entry">
-              <h3>Exploring Restuarants</h3>
-              <p class="entry-date">July 26, 2025</p>
-              <button onclick="showHiddenContentII()" class="content-btn">
-                View Content
-              </button>
-              <p class="content-text content-text-II hide">
-                Found a local restuarant down the road with the best Amala and
-                Ewa-goyin I've had in ages. I think I've found my new favorite
-                spot.
-              </p>
+              
+              <img class="btn-delete" src="trash-can.png" />
+              
             </li> -->
           </ul>
         </section>
       </main>
     </div>
     <script src="journal.js"></script>
+    <!-- <script src="test.js"></script> -->
   </body>
 </html>
+
+<!-- WITH MENTOR PSAMI -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Journal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="page-header">
+        <div class="note-header">
+          <img class="notebook" src="notebook.png" />
+          <h1>My Journal</h1>
+        </div>
+      </header>
+
+      <main>
+        <section class="journal-form-section">
+          <h2>Add New Entry</h2>
+          <form>
+            <div class="form-group">
+              <label for="entry-title">Title *</label>
+              <input
+                type="text"
+                id="entry-title"
+                name="entry-title"
+                placeholder="Your entry title"
+              />
+            </div>
+
+            <div class="date-img">
+              <div class="form-group">
+                <label for="entry-date">
+                  <img class="btn-cal" src="calendar.png" /> Date *</label
+                >
+                <input
+                  type="date"
+                  id="entry-date"
+                  name="entry-date"
+                  placeholder="dd/mm/yyyy"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="image-upload">
+                  <i class="fa fa-cloud-upload"></i
+                  ><img class="btn-cam" src="camera.png" /> Upload Image
+                  (Optional)
+                </label>
+                <input type="text" id="image-upload" name="journal_image" />
+                <img id="preview-image" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="entry-content">My thoughts *</label>
+              <textarea
+                id="entry-content"
+                name="entry-content"
+                rows="6"
+                placeholder="Write it all down here..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">Add Entry</button>
+          </form>
+        </section>
+
+        <section class="journal-search">
+          <h2 class="">Search Entries</h2>
+          <div class="form-group">
+            <input
+              type="text"
+              id="search-input"
+              class=""
+              placeholder="Search by title or content..."
+            />
+          </div>
+        </section>
+
+        <section class="journal-list-section">
+          <h2>My Journal Entries</h2>
+          <ul class="journal-list">
+           
+          </ul>
+        </section>
+      </main>
+    </div>
+    <script src="journal.js"></script>
+  </body>
+</html> -->

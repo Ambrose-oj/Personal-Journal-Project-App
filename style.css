@@ -35,6 +35,19 @@ body::after {
     margin-bottom: 30px;
 }
 
+.note-header {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: .3rem;
+}
+
+.notebook {
+    width: 1.7rem;
+    height: 1.7rem;
+}
+
 .page-header h1 {
     margin: 0;
     color: #db7f34;
@@ -90,12 +103,22 @@ input[type="date"] {
     cursor: pointer;
 }
 
+.btn-cal {
+    width: .8rem;
+    height: .7rem;
+}
+
+.btn-cam {
+    width: 1rem;
+    height: .9em;
+}
+
+
 .date-img {
     display: flex;
     flex-direction: row;
     gap: 3rem;
 }
-
 
 input[type="file"] {
     background-color: #e89856;
@@ -130,6 +153,11 @@ input[type="file"] {
 
 .btn:hover {
     background-color: #b98357;
+    transform: scale(95%);
+}
+
+.journal-search {
+    margin-bottom: 3rem;
 }
 
 .journal-list {
@@ -175,22 +203,34 @@ input[type="file"] {
     letter-spacing: .5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.content-btn:hover {
+    background-color: #b98357;
+    transform: scale(97%);
 }
 
 .btn-delete {
     display: flex;
     justify-self: end;
     padding: .3rem;
+    width: 1.2rem;
+    height: 1.2rem;  
+    margin-top: 1rem;
 }
 
-.content-btn:hover {
-    background-color: #b98357;
+.btn-delete:hover {
+    transform: scale(90%);
 }
 
 .hide {
     display: none;
 }
 
+.content-image {
+    margin: 0 auto;
+}
 
 /* .content-text {
     font-size: .7rem;
@@ -234,6 +274,12 @@ input[type="file"] {
        padding: 20px;
     }
 
+    .notebook {
+       width: 1.3rem;
+       height: 1.3rem;
+    }
+
+
     h2 {
         font-size: 1.2rem;
         justify-self: center;
@@ -273,11 +319,15 @@ input[type="file"] {
         width: 70%;
     }
 
+    .journal-search {
+        margin-bottom: .5rem;
+    }
+
     .btn {
         padding: 7px 14px;
         letter-spacing: .5px;
         font-size: 12px;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0rem;
     }
 
     .content-btn {
@@ -287,12 +337,9 @@ input[type="file"] {
     }
 
     .btn-delete {
-        padding: 3px 8px;
-        letter-spacing: .5px;
-        font-size: 12px;
-        margin-top: 2rem;
+        width: 1rem;
+        height: 1rem;  
     }
-    
 
     .content-text {
         font-size: .8rem;
